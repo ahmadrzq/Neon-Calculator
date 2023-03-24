@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: whitesmoke;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #2c012c;
+}
+
+.layer {
+  border: 2px solid #f50909; /* Set the border width and color */
+  border-radius: 10px; /* Set the border radius */
+  color: #f50909; /* Set the text color to white */
+  text-align: center; /* Center the content */
+  background-color: transparent; /* Set the background color */
+  box-shadow: 0 0 2px #f50909, 0 0 2px #f50909, 0 0 2px #f50909, 0 0 10px #f50909; /* Add the neon effect with box-shadow */
+  padding: 1em 10em;
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+}
+
+.keys {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid #f0f; /* Set the border width and color */
+  border-radius: 10px; /* Set the border radius */
+  padding: 10px; /* Add some padding to the content */
+  color: #fff; /* Set the text color to white */
+  text-align: center; /* Center the content */
+  background-color: transparent; /* Set the background color */
+  box-shadow: 0 0 2px #f0f, 0 0 2px #f0f, 0 0 2px #f0f, 0 0 10px #f0f; /* Add the neon effect with box-shadow */
+  padding: 5em 2em;
+}
+
+.button-wrap{
+    width: 20%;
+    padding: 0.5em;
+    text-align: center;
+}
+
+.button {
+  border: 3px solid #0c0fee; /* Set the border width and color */
+  border-radius: 10px; /* Set the border radius */
+  padding: 1em 0; /* Add some padding to the content */
+  text-align: center; /* Center the content */
+  background-color: transparent; /* Set the background color */
+  /* box-shadow: 0 0 2px #0c0fee, 0 0 2px #0c0fee, 0 0 2px #0c0fee, 0 0 10px #0c0fee; Add the neon effect with box-shadow */
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+.button:hover{
+    box-shadow: 0 0 5px #0c0fee, 0 0 10px #0c0fee, 0 0 15px #0c0fee, 0 0 20px #0c0fee; /* Add the neon effect with box-shadow */
+}
