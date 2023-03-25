@@ -28,11 +28,13 @@ function deleteZero() {
 
 // Selecting the "clear" button and adding a click event listener
 const btnClear = document.querySelector("#clear");
+const history = document.querySelector(".history");
 btnClear.addEventListener("click", () => {
   // Log that the "clear" button was clicked to the console
   console.log("Button clear clicked");
   // Set the content of the layer element to "0"
   layer.innerHTML = 0;
+  history.textContent = null;
 });
 
 // Get a reference to the "delete" button using its ID
@@ -48,5 +50,16 @@ btnDelete.addEventListener("click", function () {
   // If the content is "0", set "0" as the new text content of the "layer" element.
   if (content !== "0") {
     layer.textContent = content.slice(0, -1) || "0";
+  }
+});
+
+// Selecting the "total" button and adding a click event listener to calculate the total
+const total = document.querySelector("#total");
+total.addEventListener("click", () => {
+  if (layer.textContent !== "0") {
+    let allInputs = layer.textContent;
+    history.textContent = `${allInputs} =`;
+    layer.textContent = eval(allInputs);
+    console.log(eval(allInputs));
   }
 });
