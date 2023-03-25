@@ -53,7 +53,7 @@ btnDelete.addEventListener("click", function () {
   }
 });
 
-// Selecting the "total" button and adding a click event listener to calculate the total
+// Selecting the "total" button and adding a click event listener to calculate the operation
 const total = document.querySelector("#total");
 total.addEventListener("click", () => {
   if (layer.textContent !== "0") {
