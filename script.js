@@ -35,3 +35,18 @@ btnClear.addEventListener("click", () => {
   layer.innerHTML = 0;
 });
 
+// Get a reference to the "delete" button using its ID
+const btnDelete = document.querySelector("#delete");
+// Add a "click" event listener to the "delete" button
+btnDelete.addEventListener("click", function () {
+  // Log a message to the console to indicate that the button has been clicked
+  console.log("Button delete clicked and delete 1 char");
+  // Get the current text content of the "layer" element
+  const content = layer.textContent;
+  // If the content is not "0", remove the last character from the text content
+  // and set it as the new text content of the "layer" element.
+  // If the content is "0", set "0" as the new text content of the "layer" element.
+  if (content !== "0") {
+    layer.textContent = content.slice(0, -1) || "0";
+  }
+});
