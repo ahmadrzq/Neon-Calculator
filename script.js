@@ -19,3 +19,10 @@ for (let i = 0; i < button.length; i++) {
   });
 }
 
+// Function to remove leading zeros from the layer element's content
+function deleteZero() {
+  if (layer.innerHTML.charAt(0) === "0") {
+    layer.innerHTML = layer.innerHTML.substring(1);
+  }
+}
+
