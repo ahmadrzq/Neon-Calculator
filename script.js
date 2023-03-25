@@ -26,3 +26,12 @@ function deleteZero() {
   }
 }
 
+// Selecting the "clear" button and adding a click event listener
+const btnClear = document.querySelector("#clear");
+btnClear.addEventListener("click", () => {
+  // Log that the "clear" button was clicked to the console
+  console.log("Button clear clicked");
+  // Set the content of the layer element to "0"
+  layer.innerHTML = 0;
+});
+
