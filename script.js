@@ -67,3 +67,36 @@ total.addEventListener("click", () => {
     console.log(eval(allInputs));
   }
 });
+
+// Select the buttons for opening and closing parentheses
+const btnParenthesisOpen = document.querySelector("#parenthesisOpen");
+const btnParenthesisClose = document.querySelector("#parenthesisClose");
+
+// Add a click event listener to the opening parenthesis button
+btnParenthesisOpen.addEventListener("click", () => {
+  // Get the content of a layer element
+  const layerContent = layer.textContent;
+  // Check if the content is not empty
+  if (layerContent.length > 0) {
+    // Get the last character of the content
+    const lastChar = layerContent.slice(-1);
+    // Check if the last character is a number or a closing parenthesis
+    if (!isNaN(lastChar) || lastChar === ")") {
+      // If it is, delete leading zeros and add a multiplication operator before the opening parenthesis
+      deleteZero();
+      layer.textContent += "*";
+      if (layer.textContent[0] === "*") {
+        layer.textContent = layer.textContent.slice(1);
+      }
+    }
+  }
+  // Append an opening parenthesis to the content
+  layer.textContent += "(";
+});
+
+// Add a click event listener to the closing parenthesis button
+btnParenthesisClose.addEventListener("click", () => {
+  // Append a closing parenthesis to the content
+  layer.textContent += ")";
+});
+
