@@ -100,3 +100,21 @@ btnParenthesisClose.addEventListener("click", () => {
   layer.textContent += ")";
 });
 
+// Function to check if the parentheses are balanced
+function checkParentheses(str) {
+  let openParentheses = 0;
+  let closeParentheses = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "(") {
+      openParentheses++;
+    } else if (str[i] === ")") {
+      closeParentheses++;
+      // If there is a closing parenthesis before an opening parenthesis, return false
+      if (closeParentheses > openParentheses) {
+        return false;
+      }
+    }
+  }
+  // If the number of opening and closing parentheses are equal, return true
+  return openParentheses === closeParentheses;
+}
