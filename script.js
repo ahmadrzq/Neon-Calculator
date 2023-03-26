@@ -56,7 +56,11 @@ btnDelete.addEventListener("click", function () {
 // Selecting the "total" button and adding a click event listener to calculate the operation
 const total = document.querySelector("#total");
 total.addEventListener("click", () => {
-  if (layer.textContent !== "0") {
+  if (
+    layer.textContent !== "0" &&
+    layer.textContent[layer.textContent.length - 1] !== "(" &&
+    checkParentheses(layer.textContent) === true
+  ) {
     let allInputs = layer.textContent;
     history.textContent = `${allInputs} =`;
     layer.textContent = eval(allInputs);
