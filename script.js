@@ -53,6 +53,22 @@ btnDelete.addEventListener("click", function () {
   }
 });
 
+// Get a reference to the "button-operator" button using its class
+const btnOperator = document.querySelectorAll(".button-operator");
+// Add a "click" event listener to the "button-operator" button
+for (let i = 0; i < btnOperator.length; i++) {
+  btnOperator[i].addEventListener("click", () => {
+    // Log the button that was clicked to the console
+    console.log(`Klik button : ${btnOperator[i].innerHTML}`);
+    // Get the current text content of the "layer" element
+    const content = layer.textContent;
+    // Add the button's content to the end of the layer element's content
+    if (content !== "0") {
+      layer.innerHTML += btnOperator[i].innerHTML;
+    }
+  });
+}
+
 // Selecting the "total" button and adding a click event listener to calculate the operation
 const total = document.querySelector("#total");
 total.addEventListener("click", () => {
