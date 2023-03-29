@@ -64,7 +64,17 @@ for (let i = 0; i < btnOperator.length; i++) {
     const content = layer.textContent;
     // Add the button's content to the end of the layer element's content
     if (content !== "0") {
-      layer.innerHTML += btnOperator[i].innerHTML;
+      const operators = ["(", "%", "*", "+", "-", "**", ".", "/"];
+      const lastChar = content[content.length - 1];
+      const isLastCharOperator = operators.includes(lastChar);
+      if (isLastCharOperator) {
+        if (layer.textContent.slice(-2) === "**") {
+          layer.textContent = layer.textContent.slice(0, -2);
+        } else {
+          layer.textContent = content.slice(0, -1);
+        }
+      }
+      layer.textContent += btnOperator[i].textContent;
     }
   });
 }
