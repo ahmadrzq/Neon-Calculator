@@ -59,7 +59,7 @@ const btnOperator = document.querySelectorAll(".button-operator");
 for (let i = 0; i < btnOperator.length; i++) {
   btnOperator[i].addEventListener("click", () => {
     // Log the button that was clicked to the console
-    console.log(`Klik button : ${btnOperator[i].innerHTML}`);
+    // console.log(`Klik button : ${btnOperator[i].innerHTML}`);
     // Get the current text content of the "layer" element
     const content = layer.textContent;
     // Add the button's content to the end of the layer element's content
