@@ -72,7 +72,7 @@ for (let i = 0; i < btnOperator.length; i++) {
           layer.textContent = content.slice(0, -1);
         }
       }
-      layer.textContent += btnOperator[i].textContent;
+      layer.textContent += btnOperator[i].getAttribute("data-value");
     }
   });
 }
