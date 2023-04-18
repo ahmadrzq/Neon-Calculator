@@ -1,15 +1,16 @@
-@media all and (max-width: 414px) {
-    .layer-wrap {
-        max-width: 359px !important;
-    }
-}
-@media all and (max-width: 390px) {
-    .layer-wrap {
-        max-width: 335px !important;
-    }
-}
-@media all and (max-width: 375px) {
-    .layer-wrap {
-        max-width: 320px !important;
-    }
+@media all and (max-width: 425px) {
+  .button,
+  .button-delete,
+  .button-total,
+  .parenthesis,
+  .button-operator,
+  .neon-red,
+  .button-dot,
+  .history p {
+    font-size: 1.2rem !important;
+    transition: all 0.3s;
+  }
+  #layerNumber {
+    font-size: 1.4rem !important;
+  }
 }
