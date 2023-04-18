@@ -13,7 +13,9 @@ for (let i = 0; i < button.length; i++) {
     // Log the button that was clicked to the console
     console.log(`Klik button : ${button[i].innerHTML}`);
     // Call the deleteZero function to remove leading zeros
-    deleteZero();
+    if (layer.textContent[layer.textContent.length - 1] === "0") {
+      deleteZero();
+    }
     // Add the button's content to the end of the layer element's content
     layer.innerHTML += button[i].innerHTML;
   });
@@ -28,7 +30,7 @@ function deleteZero() {
 
 // Selecting the "clear" button and adding a click event listener
 const btnClear = document.querySelector("#clear");
-const history = document.querySelector(".history");
+const history = document.querySelector(".history p");
 btnClear.addEventListener("click", () => {
   // Log that the "clear" button was clicked to the console
   console.log("Button clear clicked");
@@ -61,7 +63,7 @@ for (let i = 0; i < btnOperator.length; i++) {
     // Get the current text content of the "layer" element
     const content = layer.textContent;
     // Add the button's content to the end of the layer element's content
-    if (content !== "0") {
+    if (content !== "0" && content[content.length - 1] !== "(") {
       const operators = ["(", "%", "*", "+", "-", "**", ".", "/"];
       const lastChar = content[content.length - 1];
       const isLastCharOperator = operators.includes(lastChar);
@@ -77,6 +79,14 @@ for (let i = 0; i < btnOperator.length; i++) {
   });
 }
 
+const btnDot = document.querySelector(".button-dot");
+
+btnDot.addEventListener("click", () => {
+  if (layer.textContent[layer.textContent.length - 1] !== "(") {
+    layer.textContent += btnDot.getAttribute("data-value");
+  }
+});
+
 // Selecting the "total" button and adding a click event listener to calculate the operation
 const total = document.querySelector("#total");
 total.addEventListener("click", () => {
@@ -86,7 +96,8 @@ total.addEventListener("click", () => {
   const isTextContentValid =
     layer.textContent !== "0" &&
     !isLastCharOperator &&
-    checkParentheses(layer.textContent);
+    checkParentheses(layer.textContent) &&
+    checkOperators();
   if (isTextContentValid) {
     let allInputs = layer.textContent;
     history.textContent = `${allInputs} =`;
@@ -124,7 +135,10 @@ btnParenthesisOpen.addEventListener("click", () => {
 // Add a click event listener to the closing parenthesis button
 btnParenthesisClose.addEventListener("click", () => {
   // Append a closing parenthesis to the content
-  layer.textContent += ")";
+  const content = layer.textContent;
+  if (content[content.length - 1] !== "(" && content !== "0") {
+    layer.textContent += ")";
+  }
 });
 
 // Function to check if the parentheses are balanced
@@ -145,3 +159,15 @@ function checkParentheses(str) {
   // If the number of opening and closing parentheses are equal, return true
   return openParentheses === closeParentheses;
 }
+
+// Checking if there is operator on layer
+const checkOperators = function () {
+  const operators = ["%", "*", "+", "-", "**", "/"];
+  const content = layer.textContent;
+
+  if (operators.some((item) => content.includes(item))) {
+    return true;
+  } else {
+    return false;
+  }
+};
